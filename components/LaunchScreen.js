@@ -16,23 +16,27 @@ class LaunchScreen extends Component {
       <View style={styles.container}>
           <View style={styles.logo_l1}>
             <View style={styles.logo_l2}>
-              <View style={styles.logo_u1}>
-                <View style={styles.logo_u2} />
-                <View style={styles.logo_u4} />
-                <View style={styles.logo_u3} />
-              </View>
+              <View style={styles.logo_l3} />
+              <View style={styles.logo_l4} />
+              <View style={styles.logo_u1} />
+              <View style={styles.logo_u2} />
             </View>
-            <View style={styles.logo_l3} />
-            <View style={styles.logo_l4} />
+          </View>
+          <View style={styles.logo_txt_container}>
+            <Text style={styles.logo_txt}>
+              找你
+            </Text>
           </View>
       </View>
     );
   }
 }
 
-const window = Dimensions.get('window');
-const w = window.width;
 const baseColor = 'rgb(255, 199, 91)';
+const logoSize = 120;
+const logoRadius = 8;
+const lineSize = 12;
+const logoInsideSize = logoSize - 2 * lineSize;
 
 const styles = StyleSheet.create({
   container: {
@@ -42,63 +46,71 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   logo_l1: {
-    width: w * .25,
-    height: w * .25,
+    width: logoSize,
+    height: logoSize,
     backgroundColor: 'white',
-    borderRadius: w * .02,
+    borderRadius: logoRadius,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   logo_l2: {
-    width: w * .21,
-    height: w * .21,
+    width: logoInsideSize,
+    height: logoInsideSize,
     backgroundColor: baseColor,
-    margin: w * .02,
-    borderRadius: w * .02,
-    alignItems: 'center',
-    justifyContent: 'center'
   },
   logo_l3: {
     backgroundColor: baseColor,
-    width: w * .02,
-    height: w * .06,
-    top: - w * .15,
-    left: w * .23
+    // backgroundColor: 'black',
+    width: lineSize,
+    height: logoSize * 0.2,
+    right: - lineSize,
+    top: logoInsideSize * 0.5 - logoSize * 0.1,
+    position: 'absolute'
   },
   logo_l4: {
     backgroundColor: 'white',
-    width: w * .04,
-    height: w * .02,
-    top: - w * .15,
-    left: w * .2
+    // backgroundColor: 'black',
+    width: lineSize * 2,
+    height: lineSize,
+    position: 'absolute',
+    right: - lineSize,
+    top: logoInsideSize * 0.5,
+    // left: logoSize - 2 * lineSize,
+    // top: logoInsideSize * 0.5 - logoSize * 0.125
   },
   logo_u1: {
     backgroundColor: 'white',
-    width: w * .12,
-    height: w * .15,
-    borderRadius: w * .06
+    width: logoInsideSize - 2 * lineSize,
+    height: logoInsideSize - 2 * lineSize,
+    position: 'absolute',
+    left: lineSize,
+    top: lineSize,
+    borderBottomLeftRadius: logoRadius,
+    borderBottomRightRadius: logoRadius
   },
   logo_u2: {
-    backgroundColor: 'white',
-    width: w * .12,
-    height: w * .06
-  },
-  logo_u3: {
-    width: w * .085,
-    height: w * .085,
-    // backgroundColor: 'black',
     backgroundColor: baseColor,
-    // opacity: .5,
-    left: w * .018,
-    top: - w * .1,
-    borderRadius: w * .06
-  },
-  logo_u4: {
-    width: w * .085,
-    height: w * .085,
     // backgroundColor: 'black',
-    // opacity: .5,
-    left: w * .018,
-    top: - w * .06,
-    backgroundColor: baseColor,
+    // opacity: 0.5,
+    width: logoInsideSize - 4 * lineSize,
+    height: logoInsideSize - 3 * lineSize,
+    position: 'absolute',
+    left: 2 * lineSize,
+    top: lineSize,
+    borderBottomLeftRadius: logoRadius,
+    borderBottomRightRadius: logoRadius
+  },
+  logo_txt_container: {
+    marginTop: lineSize,
+    width: logoSize,
+  },
+  logo_txt: {
+    color: 'white',
+    fontSize: logoSize * 0.2,
+    fontWeight: 'bold',
+    position: 'absolute',
+    width: logoSize,
+    textAlign: 'center',
   }
 });
 
