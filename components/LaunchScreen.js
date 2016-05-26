@@ -111,6 +111,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: logoSize,
     textAlign: 'center',
+    fontFamily: 'AppleSDGothicNeo-Medium',
+    // fontFamily: 'PingFang'
   }
 });
 
